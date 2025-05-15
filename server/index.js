@@ -10,6 +10,10 @@ app.get('/api/hello', (req, res) => {
   res.json({ message: 'Hello from Chuan!' });
 })
 
+app.get('/api/time', (req, res) => {
+  res.json({ time: new Date().toISOString() });
+})
+
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`);
 })
