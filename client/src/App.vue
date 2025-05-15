@@ -1,23 +1,26 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+import { ref, onMounted } from 'vue'
+import axios from 'axios'
+
+const message = ref('Loading...')
+
+onMounted(async () => {
+    try {
+        const res = await axios.get('http://localhost:3000/api/hello')
+        message.value = res.data.message
+    } catch (err) {
+        console.error("Failed to fetch message from server", err)
+        message.value = 'Failed to load message'
+    }
+})
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
+    <div class="text-center mt-20">
+        <h1 class="text-3xl font-bold">{{ message }}</h1>
     </div>
-  </header>
-
-  <RouterView />
 </template>
 
 <style scoped>
