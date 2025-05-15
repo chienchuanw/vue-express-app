@@ -1,0 +1,52 @@
+# Node modules
+node_modules/
+**/node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# dotenv environment variables
+.env
+.env.*.local
+
+# Vue build output
+dist/
+*.local
+
+# Optional eslint/vite cache
+.eslintcache
+.vite/
+.cache/
+
+# IDE settings
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# macOS
+.DS_Store
+
+# Drizzle ORM sqlite files (if any)
+*.db
+*.sqlite
+*.sqlite3
+drizzle/migrations/*.ts # 如果你使用 drizzle-kit 產生 migration 檔案並不想上傳
+
+# OS-generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Testing / coverage
+coverage/
+*.lcov
+
+# Temporary files
+*.log
+*.tmp
+temp/
+tmp/
