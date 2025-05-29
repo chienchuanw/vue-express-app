@@ -16,6 +16,16 @@
 pnpm install
 ```
 
+#### 可選：安裝 Faker.js（用於產生隨機測試資料）
+
+如果你需要使用 Faker 產生隨機測試資料，可以安裝 Faker.js：
+
+```bash
+pnpm add @faker-js/faker
+```
+
+**注意**：Faker.js 已經包含在專案依賴中，通常不需要手動安裝。
+
 ### 2. 設定環境變數
 
 複製 `.env.example` 為 `.env` 並填入您的資料庫設定：
@@ -84,13 +94,26 @@ pnpm server
 
 ### 測試資料生成（Seeds）
 
+#### 手動訊息 Seeds（使用預定義模板）
+
 - `pnpm seed:messages:all` - 插入所有分類的訊息
 - `pnpm seed:messages:clear` - 清空所有訊息資料
 - `pnpm seed:messages:categories` - 查看可用的訊息分類
 
+#### Faker 隨機訊息 Seeds（使用 Faker.js 產生）
+
+- `pnpm seed:faker:fake` - 產生 10 則混合類型隨機訊息
+- `pnpm seed:faker:tech` - 產生 20 則技術類型訊息
+- `pnpm seed:faker:personal` - 產生 15 則個人生活訊息
+- `pnpm seed:faker:bulk` - 產生 100 則大量測試資料
+- `pnpm seed:faker:clear` - 清空所有訊息資料
+- `pnpm seed:faker:types` - 查看可用的 Faker 訊息類型
+
 #### Seeds 進階用法
 
 你也可以直接使用 Node.js 執行 seeds 檔案：
+
+##### 手動訊息 Seeds
 
 ```bash
 # 插入所有分類的訊息
@@ -109,6 +132,30 @@ node seeds/messageSeeds.js clear
 ```
 
 **可用分類：** greetings, daily, technology, lifestyle, learning, emotions, work, hobbies, motivation, thoughts
+
+##### Faker 隨機訊息 Seeds
+
+```bash
+# 產生隨機訊息（預設 10 則混合類型）
+node seeds/fakerSeeds.js fake
+
+# 產生指定數量和類型的訊息
+node seeds/fakerSeeds.js fake 20 tech        # 20 則技術類型
+node seeds/fakerSeeds.js fake 15 personal    # 15 則個人生活
+node seeds/fakerSeeds.js fake 30 company     # 30 則公司相關
+node seeds/fakerSeeds.js fake 25 social      # 25 則社交相關
+
+# 產生大量測試資料
+node seeds/fakerSeeds.js bulk 500            # 500 則混合類型
+
+# 查看可用的 Faker 類型
+node seeds/fakerSeeds.js types
+
+# 清空所有訊息
+node seeds/fakerSeeds.js clear
+```
+
+**可用的 Faker 類型：** quote, company, personal, tech, social, work, mixed
 
 ## API 端點
 
@@ -154,6 +201,10 @@ server/
 ├── db/                    # 資料庫 Schema
 │   └── schema.js
 ├── drizzle/               # Migration 檔案
+├── seeds/                 # 測試資料生成
+│   ├── messageSeeds.js    # 手動訊息 seeds
+│   ├── fakerSeeds.js      # Faker 隨機訊息 seeds
+│   └── messageTemplates.json # 訊息模板資料
 ├── scripts/               # 腳本檔案
 │   └── init-db.js
 ├── package.json
@@ -166,5 +217,6 @@ server/
 - **框架**: Express.js
 - **ORM**: Drizzle ORM
 - **資料庫**: PostgreSQL
+- **測試資料**: Faker.js
 - **環境變數**: dotenv
 - **套件管理**: pnpm

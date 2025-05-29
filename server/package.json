@@ -15,13 +15,20 @@
     "db:studio": "drizzle-kit studio",
     "seed:messages:all": "node seeds/messageSeeds.js all",
     "seed:messages:clear": "node seeds/messageSeeds.js clear",
-    "seed:messages:categories": "node seeds/messageSeeds.js categories"
+    "seed:messages:categories": "node seeds/messageSeeds.js categories",
+    "seed:faker:fake": "node seeds/fakerSeeds.js fake",
+    "seed:faker:tech": "node seeds/fakerSeeds.js fake 20 tech",
+    "seed:faker:personal": "node seeds/fakerSeeds.js fake 15 personal",
+    "seed:faker:bulk": "node seeds/fakerSeeds.js bulk",
+    "seed:faker:clear": "node seeds/fakerSeeds.js clear",
+    "seed:faker:types": "node seeds/fakerSeeds.js types"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "packageManager": "pnpm@10.7.1",
   "dependencies": {
+    "@faker-js/faker": "^9.8.0",
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "drizzle-orm": "^0.44.0",
