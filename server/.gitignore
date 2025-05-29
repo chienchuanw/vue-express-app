@@ -1,0 +1,31 @@
+# 環境變數檔案
+.env
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 資料庫檔案
+*.db
+*.sqlite
+*.sqlite3
+
+# 日誌檔案
+logs/
+*.log
+
+# 暫存檔案
+.tmp/
+.cache/
+
+# IDE 設定檔案
+.vscode/
+.idea/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
