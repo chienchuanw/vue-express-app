@@ -12,7 +12,10 @@
     "db:init": "node scripts/init-db.js",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
-    "db:studio": "drizzle-kit studio"
+    "db:studio": "drizzle-kit studio",
+    "seed:messages:all": "node seeds/messageSeeds.js all",
+    "seed:messages:clear": "node seeds/messageSeeds.js clear",
+    "seed:messages:categories": "node seeds/messageSeeds.js categories"
   },
   "keywords": [],
   "author": "",

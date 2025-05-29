@@ -69,13 +69,46 @@ pnpm server
 
 ## 可用的腳本
 
+### 伺服器相關
+
 - `pnpm start` - 啟動生產伺服器
 - `pnpm dev` - 啟動開發伺服器（支援熱重載）
 - `pnpm server` - 啟動伺服器（別名）
+
+### 資料庫相關
+
 - `pnpm db:init` - 初始化資料庫（建立資料表）
 - `pnpm db:generate` - 生成 migration 檔案
 - `pnpm db:migrate` - 執行 migration
 - `pnpm db:studio` - 開啟 Drizzle Studio（資料庫管理介面）
+
+### 測試資料生成（Seeds）
+
+- `pnpm seed:messages:all` - 插入所有分類的訊息
+- `pnpm seed:messages:clear` - 清空所有訊息資料
+- `pnpm seed:messages:categories` - 查看可用的訊息分類
+
+#### Seeds 進階用法
+
+你也可以直接使用 Node.js 執行 seeds 檔案：
+
+```bash
+# 插入所有分類的訊息
+node seeds/messageSeeds.js all
+
+# 插入指定分類的訊息
+node seeds/messageSeeds.js greetings
+node seeds/messageSeeds.js technology
+node seeds/messageSeeds.js daily
+
+# 查看所有分類
+node seeds/messageSeeds.js categories
+
+# 清空所有訊息
+node seeds/messageSeeds.js clear
+```
+
+**可用分類：** greetings, daily, technology, lifestyle, learning, emotions, work, hobbies, motivation, thoughts
 
 ## API 端點
 
