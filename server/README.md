@@ -92,6 +92,26 @@ pnpm server
 - `pnpm db:migrate` - 執行 migration
 - `pnpm db:studio` - 開啟 Drizzle Studio（資料庫管理介面）
 
+### 資料庫備份與還原（使用 pg_dump）
+
+#### 匯出資料庫
+
+使用 `pg_dump` 可以將整個資料庫或特定資料表匯出為 SQL 檔案：
+
+```bash
+# 匯出整個資料庫（包含結構和資料）
+pg_dump -h localhost -p 5432 -U your_username -d vue_express_app -f backup.sql
+
+pg_dump -h localhost -p 5432 -U your_username -d vue_express_app > backup.sql
+```
+
+#### 匯入資料庫
+
+```bash
+# 匯入 SQL 檔案（資料庫需要存在，且要是空的）
+psql -h localhost -p 5432 -U your_username -d vue_express_app_restored < backup.sql
+```
+
 ### 測試資料生成（Seeds）
 
 #### 手動訊息 Seeds（使用預定義模板）
