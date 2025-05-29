@@ -2,12 +2,14 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/server.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "node index.js",
-    "db:init": "node init-db.js",
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "server": "node src/server.js",
+    "db:init": "node scripts/init-db.js",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "db:studio": "drizzle-kit studio"

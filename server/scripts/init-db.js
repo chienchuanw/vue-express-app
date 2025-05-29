@@ -1,5 +1,5 @@
 import { migrate } from 'drizzle-orm/postgres-js/migrator';
-import { db, messages } from './db/index.js';
+import { db, messages } from '../src/config/database.js';
 import dotenv from 'dotenv';
 
 // 載入環境變數
